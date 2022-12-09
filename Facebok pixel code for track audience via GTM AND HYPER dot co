@@ -1,0 +1,77 @@
+Lots of people facing problems with Facebook pixel code connection with Hyper.co via google tag manager and track hyper. co sales via Facebook pixel. 
+
+I uploaded the METHODS with the code (Which i used on my previous client website which is developed on webflow and checkout page on hyper.co)
+, I hope it will help you to bring/track more sales via pixel code.
+
+First you need to create an account on facebook ads manager account and create facebook pixel code using these methods
+1. Go to Business Settings in Business Manager.
+2. Select your business.
+3. Click Data Sources.
+4. Select Pixels.
+5. Click the + Add button.
+6. Type in a name for your Pixel.
+7. Optional: Enter your website URL.
+8. Click Continue.
+
+Second Step:
+
+Now open your Hyper.co account and create google tag manager account using same gmail id which is used to create an account on hyper dot co.
+Go to Settings and find GTM Code
+Click Here button and create GTM Account
+
+Third Step:
+
+When you create account on google tag manager follow these steps:
+
+1. In Google Tag Manager, select your website's container and click Add a new tag.
+2. Name your tag and then insert just the snippet of code relating to that event, plus any other variables you want to receive. Bear in mind that your variables (e.g. product_ids and product_name) may be different from the example below.
+3. Click Custom HTML tag and enter a name for your tag.
+4. Copy and paste the snippet of code relating to the event and any other variables you want to receive. Bear in mind that your variables (e.g. product_ids and product_name) may be different from the example below.
+5. Under Advanced settings, select Once per event under Tag firing options.
+6. Under Tag sequencing, tick the box and select your base code tag to ensure this tag fires after your base code.
+7. Under Fire on, select the trigger that is relevant for your site.
+8. Click Create tag.
+9. Add name Facebook pixel code (Paste the code there "YOUR PIXEL CODE HERE" and update your pixel id just and save it)
+ <script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', 'Your Pixel Code Here');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=Your Pixel Code Here&ev=PageView&noscript=1"
+/></noscript>
+
+NOTE: If you want to track just Checkout Page just add below code and publish the triggers
+ In the same way, create tags for the other events on your website like purchage checkout code.
+ Paste the below code there 
+<script>
+  fbq('track', 'purchase');
+</script>
+
+Click the Triggering Configuration and select page view type.
+click onto someview pages and add checkouturl there
+save it.
+
+Now Facebook track all purchase from hyper dot co checkout url and show you the results. (These result not 100% accurate because we are tracking the audience via two paltforms)
+ 
+In the same way, create tags for the other events on your website (e.g. add to cart, purchase). 
+
+If you want to track Add to cart audience then follow these methods:
+
+Add to cart code 
+< script > fbq ( ' track ' , ' AddToCart ' , { content_ids : [ { { product_ids ) } ' ] content_name : ' { { product_name } }' } ) ; < / script > < noscript > img height = " 1 " width = " 1 " style = " display : none " 
+src = " https://www.facebook.com/tr?id="1234567890"&ev=AddToCart&cd [ content_ids ] = { { product_ids ) } & cd [ content_name ] = { { product_name } } & noscript = 1 " / > < / noscript >
+ Purchase code 
+ < script > fbq ( ' track ' , ' AddToCart ' , { { value: { { conversion_value } },currency: 'EURO' , content_ids : [ { { product_ids ) } ' ] content_name : ' { { product_name } } } ) ; < / script > <noscript > img height = " 1 " width = " 1 " style = " display : none "
+ src = " https://www.facebook.com/tr?id=1234567890&ev=Subscribe&cd [ content_ids ] = { { product_ids ) } & cd [ content_name ] = { { product_name } } & noscript = 1 " / > < / noscript >
+ 
+ I just used above two methods to track audiance via GTM
+ 
+ 
